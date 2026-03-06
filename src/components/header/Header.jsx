@@ -26,7 +26,7 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-neutral-50 transition-colors duration-300">
-          Hossidev
+          HOSSIDEV
         </Link>
 
         {/* Botão Mobile */}
