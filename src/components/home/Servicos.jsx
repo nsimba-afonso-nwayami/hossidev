@@ -1,74 +1,86 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Servicos() {
   const listaServicos = [
-    { 
-      title: "Consultoria Estratégica", 
+    {
+      title: "Consultoria Estratégica",
       icon: "fas fa-lightbulb",
-      desc: "Análise técnica detalhada para otimizar processos e reduzir custos operacionais com tecnologia."
+      desc: "Análise técnica detalhada para otimizar processos e reduzir custos operacionais com tecnologia.",
     },
-    { 
-      title: "Segurança Eletrónica", 
+    {
+      title: "Segurança Eletrónica",
       icon: "fas fa-shield-halved",
-      desc: "Proteção perimetral avançada com sistemas inteligentes de detecção e resposta rápida."
+      desc: "Proteção perimetral avançada com sistemas inteligentes de detecção e resposta rápida.",
     },
-    { 
-      title: "Video Vigilância CCTV", 
+    {
+      title: "Video Vigilância CCTV",
       icon: "fas fa-video",
-      desc: "Monitoramento em alta definição com acesso remoto e análise de vídeo em tempo real."
+      desc: "Monitoramento em alta definição com acesso remoto e análise de vídeo em tempo real.",
     },
-    { 
-      title: "Sistemas de RADAR", 
+    {
+      title: "Sistemas de RADAR",
       icon: "fas fa-microchip",
-      desc: "Tecnologia de precisão para controle de velocidade e monitoramento de tráfego inteligente."
+      desc: "Tecnologia de precisão para controle de velocidade e monitoramento de tráfego inteligente.",
     },
-    { 
-      title: "Redes e Telecomunicações", 
+    {
+      title: "Redes e Telecomunicações",
       icon: "fas fa-network-wired",
-      desc: "Projetos de infraestrutura de rede robustos para garantir alta disponibilidade e performance."
+      desc: "Projetos de infraestrutura de rede robustos para garantir alta disponibilidade e performance.",
     },
-    { 
-      title: "Controle de Acesso RFID", 
+    {
+      title: "Controle de Acesso RFID",
       icon: "fas fa-id-card-clip",
-      desc: "Gestão de fluxo de pessoas com fechaduras magnéticas e autenticação biométrica ou RFID."
+      desc: "Gestão de fluxo de pessoas com fechaduras magnéticas e autenticação biométrica ou RFID.",
     },
-    { 
-      title: "Energias Renováveis", 
+    {
+      title: "Energias Renováveis",
       icon: "fas fa-solar-panel",
-      desc: "Implementação de sistemas fotovoltaicos para eficiência energética e sustentabilidade."
+      desc: "Implementação de sistemas fotovoltaicos para eficiência energética e sustentabilidade.",
     },
-    { 
-      title: "Softwares de Arquitetura", 
+    {
+      title: "Softwares de Arquitetura",
       icon: "fas fa-pen-ruler",
-      desc: "Instalação e configuração de ferramentas avançadas para desenho técnico e modelagem 3D."
+      desc: "Instalação e configuração de ferramentas avançadas para desenho técnico e modelagem 3D.",
     },
-    { 
-      title: "Criação de Sites", 
+    {
+      title: "Criação de Sites",
       icon: "fas fa-laptop-code",
-      desc: "Desenvolvimento de plataformas web responsivas, rápidas e focadas em conversão."
+      desc: "Desenvolvimento de plataformas web responsivas, rápidas e focadas em conversão.",
     },
-    { 
-      title: "Sistemas de Gestão Web", 
+    {
+      title: "Sistemas de Gestão Web",
       icon: "fas fa-database",
-      desc: "Softwares ERP e CRM personalizados para centralizar o controle da sua empresa."
+      desc: "Softwares ERP e CRM personalizados para centralizar o controle da sua empresa.",
     },
-    { 
-      title: "Sistemas Personalizados", 
+    {
+      title: "Sistemas Personalizados",
       icon: "fas fa-code-merge",
-      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu modelo de negócio."
+      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu modelo de negócio.",
     },
-    { 
-      title: "Manutenção Preventiva", 
+    {
+      title: "Manutenção Preventiva",
       icon: "fas fa-tools",
-      desc: "Suporte técnico contínuo para garantir que sua infraestrutura nunca pare de funcionar."
+      desc: "Suporte técnico contínuo para garantir que sua infraestrutura nunca pare de funcionar.",
     },
   ];
+
+  // Variants para animação dos cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.6 },
+    }),
+  };
 
   return (
     <section id="servicos" className="py-24 lg:py-40 bg-neutral-100">
       <div className="container mx-auto px-6 lg:px-20">
-        
-        {/* Header Premium */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl space-y-4">
             <h4 className="text-blue-900 font-bold uppercase tracking-[0.3em] text-xs">
@@ -76,32 +88,42 @@ export default function Servicos() {
             </h4>
             <h2 className="text-4xl lg:text-5xl font-light text-neutral-700 leading-tight">
               Tecnologia de ponta para <br />
-              <span className="font-bold text-blue-900">infraestruturas críticas.</span>
+              <span className="font-bold text-blue-900">
+                infraestruturas críticas.
+              </span>
             </h2>
           </div>
           <div className="hidden md:block w-24 h-px bg-neutral-400 mb-4"></div>
         </div>
 
-        {/* Grid Profissional */}
+        {/* Grid de Serviços */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-neutral-400/20 overflow-hidden rounded-2xl border border-neutral-400/20 shadow-2xl">
           {listaServicos.map((servico, index) => (
-            <div 
-              key={index} 
+            <motion.div
+              key={index}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
               className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between"
             >
-              {/* Overlay Sutil */}
+              {/* Overlay sutil */}
               <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>
-              
+
               <div className="relative z-10">
                 {/* Ícone Dinâmico */}
-                <div className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm">
-                  <i className={`${servico.icon} text-2xl text-blue-900 group-hover:text-neutral-50 transition-colors duration-500`}></i>
-                </div>
-                
+                <motion.div
+                  whileHover={{ scale: 1.15, color: "#1E40AF" }} // blue-900
+                  className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
+                >
+                  <i className={servico.icon}></i>
+                </motion.div>
+
                 <h3 className="text-lg font-bold text-neutral-700 mb-4 group-hover:text-blue-900 transition-colors duration-300 min-h-14 flex items-center leading-snug">
                   {servico.title}
                 </h3>
-                
+
                 <p className="text-neutral-500 text-sm leading-relaxed font-medium">
                   {servico.desc}
                 </p>
@@ -109,19 +131,19 @@ export default function Servicos() {
 
               {/* Detalhe de Expertise no Hover */}
               <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10">
-                 <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
-                 <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                   {servico.title.split(' ')[0]}
-                 </span>
+                <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
+                <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  {servico.title.split(" ")[0]}
+                </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Call to Action Final */}
+        {/* CTA final */}
         <div className="mt-28 flex flex-col items-center">
-          <Link 
-            href="#contato" 
+          <Link
+            href="#contato"
             className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-full overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center"
           >
             <span className="relative z-10 flex items-center gap-3">
@@ -134,7 +156,6 @@ export default function Servicos() {
             Qualidade · Segurança · Inovação
           </p>
         </div>
-
       </div>
     </section>
   );
