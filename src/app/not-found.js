@@ -25,13 +25,13 @@ export default function NotFound() {
         
         {/* Visual de Impacto: O "404" Tecnológico */}
         <div className="relative inline-block group">
-          <h1 className="text-[14rem] md:text-[22rem] font-black text-neutral-800 leading-none select-none tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+          <h1 className="text-[clamp(5rem,20vw,22rem)] font-black text-neutral-800 leading-none select-none tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity duration-700">
             4<span className="text-blue-600 animate-pulse">0</span>4
           </h1>
           <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="text-4xl md:text-5xl font-light text-neutral-50 uppercase tracking-[0.4em] leading-tight drop-shadow-lg">
-              Conexão <span className="font-extrabold text-blue-400">interrompida</span>
-            </h2>
+            <h2 className="text-[clamp(1.2rem,3vw,3rem)] font-light text-neutral-50 uppercase tracking-[0.4em] leading-tight drop-shadow-lg">
+            Conexão <span className="font-extrabold text-blue-400">interrompida</span>
+          </h2>
           </div>
         </div>
 
