@@ -2,8 +2,57 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
+import { contatoSchema } from "@/validations/contatoSchema";
 
 export default function Contato() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: yupResolver(contatoSchema),
+  });
+
+  const onSubmit = async (data) => {
+    const toastId = toast.loading("Enviando mensagem...");
+
+    try {
+      const { nome, email, servico, mensagem } = data;
+
+      const texto = `
+        Olá! Tenho interesse em um projeto.
+
+        Nome: ${nome}
+        Email: ${email}
+        Serviço: ${servico}
+
+        Mensagem:
+        ${mensagem}
+      `;
+
+      const mensagemFormatada = encodeURIComponent(texto);
+
+      const numero = "244999000111";
+
+      const url = `https://wa.me/${numero}?text=${mensagemFormatada}`;
+
+      // atraso de 2 segundos
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      window.open(url, "_blank");
+
+      toast.success("Redirecionando para o WhatsApp...", { id: toastId });
+
+      reset();
+    } catch (err) {
+      toast.error("Erro ao abrir WhatsApp", { id: toastId });
+    }
+  };
+
   return (
     <section id="contato" className="py-24 lg:py-40 bg-neutral-50">
       <div className="container mx-auto px-6 lg:px-20">
@@ -93,52 +142,92 @@ export default function Contato() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-neutral-100 p-8 lg:p-12 rounded-3xl shadow-sm border border-neutral-400/30"
           >
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div className="grid md:grid-cols-2 gap-6">
+                {/* Nome */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700 uppercase ml-1">
                     Nome Completo
                   </label>
+
                   <input
                     type="text"
                     placeholder="Ex: João Silva"
+                    {...register("nome")}
                     className="w-full px-5 py-4 bg-neutral-50 border border-neutral-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all text-neutral-700"
                   />
+
+                  {errors.nome && (
+                    <p className="text-red-500 text-sm">
+                      {errors.nome.message}
+                    </p>
+                  )}
                 </div>
+
+                {/* Email */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-neutral-700 uppercase ml-1">
                     Seu E-mail
                   </label>
+
                   <input
                     type="email"
                     placeholder="joao@exemplo.com"
+                    {...register("email")}
                     className="w-full px-5 py-4 bg-neutral-50 border border-neutral-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all text-neutral-700"
                   />
+
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
               </div>
 
+              {/* Serviço */}
               <div className="space-y-2">
                 <label className="text-xs font-bold text-neutral-700 uppercase ml-1">
                   Serviço de Interesse
                 </label>
-                <select className="w-full px-5 py-4 bg-neutral-50 border border-neutral-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all text-neutral-700 appearance-none">
+
+                <select
+                  {...register("servico")}
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all text-neutral-700 appearance-none"
+                >
+                  <option value="">Selecione</option>
                   <option>Consultoria Estratégica</option>
                   <option>Segurança Eletrónica / CCTV</option>
                   <option>Criação de Sites e Sistemas</option>
                   <option>Energias Renováveis</option>
                   <option>Outros Serviços</option>
                 </select>
+
+                {errors.servico && (
+                  <p className="text-red-500 text-sm">
+                    {errors.servico.message}
+                  </p>
+                )}
               </div>
 
+              {/* Mensagem */}
               <div className="space-y-2">
                 <label className="text-xs font-bold text-neutral-700 uppercase ml-1">
                   Mensagem
                 </label>
+
                 <textarea
                   rows="4"
                   placeholder="Como podemos ajudar o seu negócio?"
+                  {...register("mensagem")}
                   className="w-full px-5 py-4 bg-neutral-50 border border-neutral-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all text-neutral-700 resize-none"
                 ></textarea>
+
+                {errors.mensagem && (
+                  <p className="text-red-500 text-sm">
+                    {errors.mensagem.message}
+                  </p>
+                )}
               </div>
 
               <motion.button
