@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import WhatsAppButton from "@/components/whatsapp/WhatsAppButton";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -78,6 +79,12 @@ export default function RootLayout({ children }) {
 
         {/* Botão WhatsApp fixo do site */}
         <WhatsAppButton phone="24492300000" size={64} />
+        <Toaster
+          position="top-right"
+          containerStyle={{
+            zIndex: 10000,
+          }}
+        />
 
         {/* Footer */}
         <Footer />
