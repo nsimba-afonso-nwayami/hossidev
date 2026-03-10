@@ -72,7 +72,7 @@ export default function Hero() {
               <div className="relative w-full h-full flex items-center overflow-hidden">
                 
                 {/* 1. Imagem de Fundo com efeito Ken Burns (Zoom suave) */}
-                <div className={`absolute inset-0 transition-transform duration-[8000ms] ease-linear ${isActive ? "scale-110" : "scale-100"}`}>
+                <div className={`absolute inset-0 transition-transform duration-8000 ease-linear ${isActive ? "scale-110" : "scale-100"}`}>
                   <Image
                     src={slide.img}
                     alt={slide.highlight}
@@ -83,7 +83,7 @@ export default function Hero() {
                 </div>
 
                 {/* 2. Overlay Profundo */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent z-10" />
 
                 {/* 3. Conteúdo Centralizado */}
                 <div className="container mx-auto px-6 lg:px-12 relative z-20">
@@ -160,7 +160,7 @@ export default function Hero() {
       `}</style>
 
       {/* Detalhe de borda inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent z-30" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-neutral-800 to-transparent z-30" />
     </section>
   );
 }
