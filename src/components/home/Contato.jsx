@@ -252,7 +252,7 @@ export default function Contato() {
           className="w-full h-112.5 lg:h-137.5 rounded-[2.5rem] overflow-hidden shadow-2xl border border-neutral-400/20 group"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126154.91574442152!2d13.158580231572626!3d-8.850239070002131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f15194602923%3A0x6a0c0e39537136f3!2sLuanda%2C%20Angola!5e0!3m2!1spt-BR!2s!4v1700000000000!5m2!1spt-BR!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.7343727422167!2d13.25866857414194!3d-8.996571892629392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a521feccbfcdc5b%3A0x39338cb33ba2f1ea!2sN.Wayami!5e0!3m2!1spt-PT!2sao!4v1770129007183!5m2!1spt-PT!2sao"
             width="100%"
             height="100%"
             style={{ border: 0 }}
