@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 // Metadados Otimizados para SEO e Redes Sociais
 export const metadata = {
-  metadataBase: new URL('https://www.hossidev.com'), // Substitua pela sua URL real
+  metadataBase: new URL('https://hossidev.vercel.app/'), // Substitua pela sua URL real
   title: {
     default: "Hossidev | Tecnologia, Segurança e Consultoria",
     template: "%s | Hossidev"
@@ -27,13 +27,13 @@ export const metadata = {
   openGraph: {
     title: "Hossidev | Engenharia e Tecnologia de Ponta",
     description: "Soluções integradas de infraestrutura digital e segurança para o mercado angolano.",
-    url: 'https://www.hossidev.com',
+    url: 'https://hossidev.vercel.app/',
     siteName: 'Hossidev',
     locale: 'pt_AO',
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg', // Coloque uma imagem de 1200x630px na pasta /public
+        url: '/hero.jpg', // Coloque uma imagem de 1200x630px na pasta /public
         width: 1200,
         height: 630,
         alt: 'Hossidev Tecnologia e Segurança',
@@ -46,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Hossidev | Tecnologia e Segurança',
     description: 'Soluções robustas para infraestruturas críticas e digitais.',
-    images: ['/og-image.jpg'],
+    images: ['/hero.jpg'],
   },
 
   // Instruções para robôs de busca
