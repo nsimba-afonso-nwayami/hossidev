@@ -113,7 +113,7 @@ export default function Contato() {
                     Telefone / WhatsApp
                   </p>
                   <p className="text-lg font-bold text-neutral-700">
-                    +244 9XX XXX XXX
+                    +244 972 614 886
                   </p>
                 </div>
               </div>
@@ -127,7 +127,8 @@ export default function Contato() {
                     Localização
                   </p>
                   <p className="text-lg font-bold text-neutral-700">
-                    Luanda, Angola
+                    Centralidade do Kilamba Quarteirão F,<br />
+                    Edifício F27, Apt. 91, Luanda, Angola
                   </p>
                 </div>
               </div>
@@ -257,6 +258,7 @@ export default function Contato() {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            title="Mapa de localização HOSSIDEV"
             referrerPolicy="no-referrer-when-downgrade"
             className="grayscale-[0.5] contrast-[1.1] group-hover:grayscale-0 transition-all duration-700"
           ></iframe>
