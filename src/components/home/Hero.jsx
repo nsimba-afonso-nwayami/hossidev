@@ -1,125 +1,166 @@
 "use client";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade, Pagination, Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import heroBg from "@/assets/img/hero.jpg";
-import { useEffect, useState } from "react";
+
+// Estilos do Swiper
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import heroBg from "@/assets/img/hero.jpg"; // Use imagens diferentes se tiver
 
 export default function Hero() {
-  const [animate, setAnimate] = useState(false);
+  const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
-    // Dispara animações quando o componente é montado
-    const timeout = setTimeout(() => setAnimate(true), 200);
-    return () => clearTimeout(timeout);
+    setDomLoaded(true);
   }, []);
 
+  const slides = [
+    {
+      title: "Suporte de TI Profissional para",
+      highlight: "Empresas Modernas",
+      desc: "Especialistas em infraestrutura, redes e consultoria tecnológica para empresas que buscam alta performance em Luanda.",
+      price: null,
+      img: heroBg,
+    },
+    {
+      title: "Segurança Eletrónica e",
+      highlight: "Vigilância CCTV",
+      desc: "Instalação de câmeras IP de alta definição e monitoramento remoto. Proteja seu patrimônio com o que há de mais moderno.",
+      price: "A partir de 150.000 Kz",
+      img: heroBg,
+    },
+    {
+      title: "Redes e",
+      highlight: "Telecomunicações",
+      desc: "Projetamos e implementamos redes estruturadas, Wi-Fi corporativo e sistemas de telecomunicações robustos.",
+      price: "A partir de 120.000 Kz",
+      img: heroBg,
+    },
+    {
+      title: "Criação de",
+      highlight: "Sistemas e Sites",
+      desc: "Desenvolvemos sites institucionais, sistemas de gestão web e soluções personalizadas para o seu negócio.",
+      price: "A partir de 250.000 Kz",
+      img: heroBg,
+    }
+  ];
+
+  if (!domLoaded) return <section className="h-screen bg-black" />;
+
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-black">
-      {/* 1. Imagem de Fundo */}
-      <Image
-        src={heroBg}
-        alt="Infraestrutura de TI Avançada"
-        fill
-        priority
-        className="object-cover object-center z-0 opacity-70"
-      />
+    <section className="relative w-full h-screen bg-black group">
+      <Swiper
+        modules={[Autoplay, EffectFade, Pagination, Navigation]}
+        effect="fade"
+        speed={1000}
+        autoplay={{ delay: 8000, disableOnInteraction: false }}
+        pagination={{ clickable: true, dynamicBullets: true }}
+        navigation={true}
+        loop
+        className="w-full h-full"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            {({ isActive }) => (
+              <div className="relative w-full h-full flex items-center overflow-hidden">
+                
+                {/* 1. Imagem de Fundo com efeito Ken Burns (Zoom suave) */}
+                <div className={`absolute inset-0 transition-transform duration-[8000ms] ease-linear ${isActive ? "scale-110" : "scale-100"}`}>
+                  <Image
+                    src={slide.img}
+                    alt={slide.highlight}
+                    fill
+                    priority={index === 0}
+                    className="object-cover opacity-60"
+                  />
+                </div>
 
-      {/* 2. Overlay Preto/Gradiente */}
-      <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-transparent z-10" />
+                {/* 2. Overlay Profundo */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
 
-      {/* 3. Conteúdo */}
-      <div className="container mx-auto px-6 lg:px-12 relative z-20">
-        <div className="max-w-3xl space-y-6">
-          {/* Linha de acento azul */}
-          <div
-            className={`w-16 h-1 bg-blue-900 mb-4 rounded-full transition-all duration-1000 transform ${
-              animate
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-10"
-            }`}
-          />
+                {/* 3. Conteúdo Centralizado */}
+                <div className="container mx-auto px-6 lg:px-12 relative z-20">
+                  <div className="max-w-3xl space-y-6">
+                    
+                    {/* Linha de acento */}
+                    <div className={`w-16 h-1 bg-blue-900 rounded-full transition-all duration-1000 delay-300 ${isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`} />
 
-          {/* Título */}
-          <h1
-            className={`text-3xl md:text-5xl lg:text-6xl font-bold text-neutral-50 leading-snug tracking-tight transition-all duration-1000 transform ${
-              animate
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-10"
-            }`}
-          >
-            Suporte de TI Profissional para <span className="text-blue-800">Empresas</span> Modernas 
-          </h1>
+                    {/* Título com animação */}
+                    <h1 className={`text-3xl md:text-5xl lg:text-7xl font-bold text-neutral-50 leading-tight transition-all duration-1000 delay-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                      {slide.title} <br />
+                      <span className="text-blue-600 uppercase tracking-tighter">{slide.highlight}</span>
+                    </h1>
 
-          {/* Descrição */}
-          <p
-            className={`mt-6 text-base md:text-lg text-neutral-200 max-w-2xl leading-relaxed font-light transition-all duration-1000 delay-200 transform ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            Especialistas em suporte de TI, redes informáticas, segurança eletrónica
-            e desenvolvimento de soluções digitais. Implementamos CCTV, controlo de
-            acesso, sistemas web, telecomunicações e infraestrutura tecnológica para
-            empresas que precisam de tecnologia confiável e suporte contínuo.
-          </p>
+                    {/* Descrição */}
+                    <p className={`text-base md:text-xl text-neutral-200 max-w-2xl font-light leading-relaxed transition-all duration-1000 delay-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                      {slide.desc}
+                    </p>
 
-          {/* Botões */}
-          <div
-            className={`mt-10 flex flex-col sm:flex-row items-center gap-4 transition-all duration-1000 delay-400 transform ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            <Link
-              href="/#contato"
-              className="group w-full sm:w-auto px-8 py-3 bg-blue-900 text-neutral-50 font-bold rounded-lg hover:bg-blue-800 shadow-lg transition-all duration-300 text-center"
-            >
-              Começar agora
-            </Link>
+                    {/* Preço (Badge) */}
+                    {slide.price && (
+                      <div className={`inline-block px-4 py-2 bg-blue-900/20 border border-blue-900/30 rounded-lg transition-all duration-1000 delay-800 ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
+                        <p className="text-blue-400 font-bold text-lg md:text-xl italic">{slide.price}</p>
+                      </div>
+                    )}
 
-            <Link
-              href="/#servicos"
-              className="w-full sm:w-auto px-8 py-3 border border-neutral-600 text-neutral-50 font-bold rounded-lg hover:bg-neutral-50 hover:text-black transition-all duration-300 text-center"
-            >
-              Nossas Soluções
-            </Link>
-          </div>
+                    {/* Botões */}
+                    <div className={`flex flex-col sm:flex-row gap-4 pt-6 transition-all duration-1000 delay-1000 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                      <Link
+                        href="/#contato"
+                        className="px-10 py-4 bg-blue-900 text-neutral-50 font-black rounded-xl hover:bg-blue-800 shadow-xl shadow-blue-900/20 transition-all text-center uppercase text-sm tracking-widest"
+                      >
+                        Falar com Especialista
+                      </Link>
+                      <Link
+                        href="/#servicos"
+                        className="px-10 py-4 border border-neutral-600 text-neutral-50 font-bold rounded-xl hover:bg-neutral-50 hover:text-black transition-all text-center uppercase text-sm tracking-widest"
+                      >
+                        Nossos Serviços
+                      </Link>
+                    </div>
 
-          {/* Stats Rápidos */}
-          <div
-            className={`mt-16 flex flex-wrap gap-10 border-l border-blue-900 pl-6 transition-all duration-1000 delay-600 transform ${
-              animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            <div>
-              <p className="text-2xl md:text-3xl font-bold text-neutral-50">
-                99.9%
-              </p>
-              <p className="text-xs md:text-sm text-neutral-400 uppercase tracking-widest mt-1">
-                Uptime
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-bold text-neutral-50">
-                24/7
-              </p>
-              <p className="text-xs md:text-sm text-neutral-400 uppercase tracking-widest mt-1">
-                Suporte
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-bold text-neutral-50">
-                +500
-              </p>
-              <p className="text-xs md:text-sm text-neutral-400 uppercase tracking-widest mt-1">
-                Projetos
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Estilização Customizada para as setas do Swiper (apenas no hover do slider) */}
+      <style jsx global>{`
+        .swiper-button-next, .swiper-button-prev {
+          color: white !important;
+          opacity: 0;
+          transition: all 0.3s ease;
+          transform: scale(0.7);
+        }
+        .group:hover .swiper-button-next, .group:hover .swiper-button-prev {
+          opacity: 0.5;
+          transform: scale(0.5);
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+          opacity: 1 !important;
+        }
+        .swiper-pagination-bullet {
+          background: white !important;
+        }
+        .swiper-pagination-bullet-active {
+          background: #1e3a8a !important; /* blue-900 */
+          width: 24px !important;
+          border-radius: 4px !important;
+        }
+      `}</style>
 
       {/* Detalhe de borda inferior */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-neutral-800 to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent z-30" />
     </section>
   );
 }
