@@ -36,7 +36,7 @@ export default function Contato() {
 
       const mensagemFormatada = encodeURIComponent(texto);
 
-      const numero = "244999000111";
+      const numero = "244972614886";
 
       const url = `https://wa.me/${numero}?text=${mensagemFormatada}`;
 
