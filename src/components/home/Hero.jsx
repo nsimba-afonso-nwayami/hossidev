@@ -48,8 +48,7 @@ export default function Hero() {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            Tecnologia de <span className="text-blue-800">Elite</span> para
-            Empresas Visionárias
+            Suporte de TI Profissional para <span className="text-blue-800">Empresas</span> Modernas 
           </h1>
 
           {/* Descrição */}
@@ -58,8 +57,10 @@ export default function Hero() {
               animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
-            Especialistas em infraestrutura crítica, segurança cibernética e
-            cloud computing. Protegemos o seu hoje, construindo o seu amanhã.
+            Especialistas em suporte de TI, redes informáticas, segurança eletrónica
+            e desenvolvimento de soluções digitais. Implementamos CCTV, controlo de
+            acesso, sistemas web, telecomunicações e infraestrutura tecnológica para
+            empresas que precisam de tecnologia confiável e suporte contínuo.
           </p>
 
           {/* Botões */}
