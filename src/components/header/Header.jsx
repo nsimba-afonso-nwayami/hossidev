@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import logo from "@/assets/img/logo.png";
 
 export default function Header() {
@@ -26,8 +27,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-neutral-50 transition-colors duration-300">
-          HOSSIDEV
+        <Link href="/" className="flex items-center" title="HOSSIDEV">
+          <Image
+            src={logo}
+            alt="HOSSIDEV"
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Botão Mobile */}
