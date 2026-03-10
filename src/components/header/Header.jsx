@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import logo from "@/assets/img/logo.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
