@@ -13,18 +13,18 @@ export const metadata = {
   creator: "HOSSIDEV",
   publisher: "HOSSIDEV",
   alternates: {
-    canonical: "https://www.hossidev.com",
+    canonical: "https://hossidev.vercel.app/",
   },
   openGraph: {
     title: "HOSSIDEV | Soluções Tecnológicas de Alta Performance",
     description: "Infraestrutura digital, segurança e sistemas personalizados para o mercado angolano.",
-    url: "https://www.hossidev.com",
+    url: "https://hossidev.vercel.app/",
     siteName: "HOSSIDEV",
     locale: "pt_AO",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg", // Crie uma imagem de 1200x630px na pasta public
+        url: "/hero.jpg", // Crie uma imagem de 1200x630px na pasta public
         width: 1200,
         height: 630,
         alt: "HOSSIDEV Tecnologia e Segurança",
@@ -43,14 +43,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "HOSSIDEV",
-    "image": "https://www.hossidev.com/logo.png",
+    "image": "https://hossidev.vercel.app/logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Sua Rua aqui",
       "addressLocality": "Luanda",
       "addressCountry": "AO"
     },
-    "url": "https://www.hossidev.com",
+    "url": "https://hossidev.vercel.app/",
     "telephone": "+2449XXXXXXXX",
     "openingHoursSpecification": [
       {
