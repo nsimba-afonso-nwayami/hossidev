@@ -16,6 +16,7 @@
     "react-dom": "19.2.3",
     "react-hook-form": "^7.71.2",
     "react-hot-toast": "^2.6.0",
+    "swiper": "^12.1.2",
     "yup": "^1.7.1"
   },
   "devDependencies": {
