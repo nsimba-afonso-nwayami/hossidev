@@ -11,54 +11,81 @@ const poppins = Poppins({
   weight: ["100","200","300","400","500","600","700","800","900"],
 });
 
-// Metadados Otimizados para SEO e Redes Sociais
+// SEO GLOBAL DO SITE
 export const metadata = {
-  metadataBase: new URL('https://hossidev.vercel.app/'), // Substitua pela sua URL real
+  metadataBase: new URL("https://hossidev.vercel.app"),
+
   title: {
-    default: "Hossidev | Tecnologia, Segurança e Consultoria",
-    template: "%s | Hossidev"
+    default: "HOSSIDEV | Suporte de TI, CCTV e Desenvolvimento de Sistemas em Luanda",
+    template: "%s | HOSSIDEV",
   },
-  description: "Líder em soluções de Segurança Eletrónica, Infraestrutura de Redes, Consultoria Tecnológica e Desenvolvimento de Sistemas em Luanda, Angola.",
-  keywords: ["Segurança Eletrónica Angola", "CCTV Luanda", "Hossidev", "Tecnologia Angola", "Energias Renováveis", "Desenvolvimento Web Angola"],
-  authors: [{ name: "Hossidev" }],
-  creator: "Hossidev",
-  
-  // Configuração para compartilhamento (WhatsApp, LinkedIn, FB)
+
+  description:
+    "Empresa especializada em suporte de TI, instalação de CCTV, redes informáticas, controle de acesso, desenvolvimento de sistemas e criação de sites em Luanda, Angola.",
+
+  keywords: [
+    "Suporte de TI Angola",
+    "Suporte informático Luanda",
+    "Instalação CCTV Angola",
+    "Segurança eletrónica Luanda",
+    "Redes informáticas Angola",
+    "Controle de acesso RFID Angola",
+    "Criação de sites Angola",
+    "Desenvolvimento de sistemas web Angola",
+    "Consultoria tecnológica Luanda",
+    "HOSSIDEV"
+  ],
+
+  authors: [{ name: "HOSSIDEV" }],
+  creator: "HOSSIDEV",
+  publisher: "HOSSIDEV",
+
+  category: "technology",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Hossidev | Engenharia e Tecnologia de Ponta",
-    description: "Soluções integradas de infraestrutura digital e segurança para o mercado angolano.",
-    url: 'https://hossidev.vercel.app/',
-    siteName: 'Hossidev',
-    locale: 'pt_AO',
-    type: 'website',
+    title: "HOSSIDEV | Suporte de TI e Soluções Tecnológicas em Angola",
+    description:
+      "Soluções completas em suporte de TI, segurança eletrónica, CCTV, redes informáticas e desenvolvimento de sistemas personalizados.",
+
+    url: "https://hossidev.vercel.app",
+    siteName: "HOSSIDEV",
+
+    locale: "pt_AO",
+    type: "website",
+
     images: [
       {
-        url: '/hero.jpg', // Coloque uma imagem de 1200x630px na pasta /public
+        url: "/hero.jpg",
         width: 1200,
         height: 630,
-        alt: 'Hossidev Tecnologia e Segurança',
+        alt: "HOSSIDEV - Tecnologia e Segurança Eletrónica",
       },
     ],
   },
 
-  // Configuração para Twitter/X
   twitter: {
-    card: 'summary_large_image',
-    title: 'Hossidev | Tecnologia e Segurança',
-    description: 'Soluções robustas para infraestruturas críticas e digitais.',
-    images: ['/hero.jpg'],
+    card: "summary_large_image",
+    title: "HOSSIDEV | Tecnologia e Segurança",
+    description:
+      "Especialistas em suporte de TI, CCTV, redes informáticas e desenvolvimento de sistemas em Angola.",
+    images: ["/hero.jpg"],
   },
 
-  // Instruções para robôs de busca
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
