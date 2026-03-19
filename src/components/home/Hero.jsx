@@ -37,14 +37,14 @@ export default function Hero() {
       title: "Suporte de TI Profissional para",
       highlight: "Empresas Modernas",
       desc: "Especialistas em infraestrutura, redes e consultoria tecnológica para empresas que buscam alta performance em Luanda.",
-      price: null,
+      price: "A partir de 100.000 Kz",
       img: suporteBg,
     },
     {
       title: "Segurança Eletrónica e",
       highlight: "Vigilância CCTV",
       desc: "Instalação de câmeras IP de alta definição e monitoramento remoto. Proteja seu patrimônio com o que há de mais moderno.",
-      price: "A partir de 100.000 Kz",
+      price: "A partir de 20.000 Kz",
       img: segurancaBg,
     },
     {
@@ -58,7 +58,7 @@ export default function Hero() {
       title: "Criação de",
       highlight: "Sistemas e Sites",
       desc: "Desenvolvemos sites institucionais, sistemas de gestão web e soluções personalizadas para o seu negócio.",
-      price: "A partir de 250.000 Kz",
+      price: "A partir de 50.000 Kz",
       img: sitesBg,
     }
   ];
