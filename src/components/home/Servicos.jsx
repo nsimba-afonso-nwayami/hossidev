@@ -69,18 +69,24 @@ export default function Servicos() {
       preco: "300.000",
     },
     {
+      title: "Sistemas Personalizados",
+      icon: "fas fa-code-merge",
+      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu negócio.",
+      preco: null,
+    },
+    {
       title: "Fechadura Magnética Simples",
       icon: "fas fa-door-closed",
       desc: "Segurança básica e eficiente para portas internas e externas com travamento eletromagnético.",
       preco: "150.000",
     },
+    // Estes aparecem no "Ver Mais"
     {
       title: "Sistema Biométrico Analógico",
       icon: "fas fa-fingerprint",
       desc: "Controle de entrada clássico por impressão digital com alta taxa de reconhecimento.",
       preco: "100.000",
     },
-    // Estes aparecem no "Ver Mais"
     {
       title: "Sistema Biométrico Completo",
       icon: "fas fa-users-gear",
@@ -92,12 +98,6 @@ export default function Servicos() {
       icon: "fas fa-user-shield",
       desc: "Combinação de segurança física e digital para áreas de acesso restrito e alta segurança.",
       preco: "400.000",
-    },
-    {
-      title: "Sistemas Personalizados",
-      icon: "fas fa-code-merge",
-      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu negócio.",
-      preco: null,
     },
     {
       title: "Manutenção Preventiva",
