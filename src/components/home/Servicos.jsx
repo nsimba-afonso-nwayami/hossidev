@@ -107,14 +107,14 @@ export default function Servicos() {
     },
   ];
 
-  const servicosExibidos = verTodos ? listaServicos : listaServicos.slice(0, 12);
+  const servicosExibidos = verTodos ? listaServicos : listaServicos.slice(0, 8);
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: (i) => ({
       opacity: 1,
       scale: 1,
-      transition: { delay: (i % 12) * 0.05, duration: 0.4 },
+      transition: { delay: (i % 8) * 0.05, duration: 0.4 },
     }),
   };
 
