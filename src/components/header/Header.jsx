@@ -38,7 +38,7 @@ export default function Header() {
             src={logo}
             alt="HOSSIDEV"
             priority
-            className="h-10 w-auto"
+            className="h-10 w-auto rounded-xl transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
