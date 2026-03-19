@@ -152,19 +152,18 @@ export default function Servicos() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 variants={cardVariants}
                 layout
-                className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between overflow-hidden"
+                className="bg-neutral-50 p-10 transition-all duration-500 group relative hover:z-10 flex flex-col justify-between overflow-hidden cursor-pointer"
               >
-                {/* Overlay sutil ao passar o mouse */}
-                <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>
+                {/* Overlay sutil ao passar o mouse ou tocar */}
+                <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] group-active:opacity-[0.05] transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
                   {/* Ícone */}
-                  <motion.div
-                    whileHover={{ scale: 1.1, color: "#1E3A8A" }} // blue-900
-                    className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
+                  <div
+                    className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 group-hover:text-neutral-50 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
                   >
                     <i className={servico.icon}></i>
-                  </motion.div>
+                  </div>
 
                   <h3 className="text-lg font-bold text-neutral-700 mb-4 group-hover:text-blue-900 transition-colors duration-300 min-h-14 flex items-center leading-snug">
                     {servico.title}
@@ -183,17 +182,17 @@ export default function Servicos() {
                     )}
                   </div>
 
-                  <p className="text-neutral-500 text-sm leading-relaxed font-medium mb-4 group-hover:opacity-40 transition-opacity duration-500">
+                  <p className="text-neutral-500 text-sm leading-relaxed font-medium mb-4 group-hover:opacity-20 group-active:opacity-10 transition-opacity duration-500">
                     {servico.desc}
                   </p>
                 </div>
 
-                {/* BOTÃO WHATSAPP (Aparece no Hover) */}
-                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+                {/* BOTÃO WHATSAPP (Aparece no Hover/Touch) */}
+                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 group-active:translate-y-0 transition-transform duration-500 ease-out z-20">
                   <Link
                     href={`${whatsappBase}${encodeURIComponent(servico.title)}`}
                     target="_blank"
-                    className="flex items-center justify-center gap-3 w-full py-4 bg-blue-900 text-neutral-50 rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-blue-900/30 hover:bg-blue-800 transition-colors"
+                    className="flex items-center justify-center gap-3 w-full py-4 bg-blue-900 text-neutral-50 rounded-xl font-bold text-xs uppercase tracking-widest shadow-xl shadow-blue-900/30 hover:bg-blue-800 active:scale-95 transition-all"
                   >
                     <i className="fab fa-whatsapp text-lg"></i>
                     Solicitar Orçamento
@@ -201,9 +200,9 @@ export default function Servicos() {
                 </div>
 
                 {/* Detalhe de Expertise Lateral */}
-                <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10 group-hover:opacity-0 transition-opacity duration-300">
-                  <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
-                  <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10 group-hover:opacity-0 group-active:opacity-0 transition-opacity duration-300">
+                  <div className="w-8 h-px bg-blue-900"></div>
+                  <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest">
                     {servico.title.split(" ")[0]}
                   </span>
                 </div>
