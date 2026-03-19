@@ -12,10 +12,11 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import heroBg from "@/assets/img/hero.jpg"; // Use imagens diferentes se tiver
+import heroBg from "@/assets/img/hero.jpg"; 
 import suporteBg from "@/assets/img/suporte.jpg";
 import sitesBg from "@/assets/img/sites.jpg";
 import segurancaBg from "@/assets/img/seguranca.jpg";
+import promocaoBg from "@/assets/img/promocao.jpg";
 
 export default function Hero() {
   const [domLoaded, setDomLoaded] = useState(false);
@@ -25,6 +26,13 @@ export default function Hero() {
   }, []);
 
   const slides = [
+    {
+      title: "Ofertas Especiais de",
+      highlight: "Temporada Tech",
+      desc: "CCTV a partir de 100.000 Kz e Sites Institucionais a partir de 50.000 Kz. Tecnologia de ponta com condições exclusivas.",
+      price: "Promoções Ativas",
+      img: promocaoBg,
+    },
     {
       title: "Suporte de TI Profissional para",
       highlight: "Empresas Modernas",
@@ -36,14 +44,14 @@ export default function Hero() {
       title: "Segurança Eletrónica e",
       highlight: "Vigilância CCTV",
       desc: "Instalação de câmeras IP de alta definição e monitoramento remoto. Proteja seu patrimônio com o que há de mais moderno.",
-      price: "A partir de 150.000 Kz",
+      price: "A partir de 100.000 Kz",
       img: segurancaBg,
     },
     {
       title: "Redes e",
       highlight: "Telecomunicações",
       desc: "Projetamos e implementamos redes estruturadas, Wi-Fi corporativo e sistemas de telecomunicações robustos.",
-      price: "A partir de 120.000 Kz",
+      price: "A partir de 200.000 Kz",
       img: heroBg,
     },
     {
@@ -137,7 +145,7 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Estilização Customizada para as setas do Swiper (apenas no hover do slider) */}
+      {/* Estilização Customizada */}
       <style jsx global>{`
         .swiper-button-next, .swiper-button-prev {
           color: white !important;
