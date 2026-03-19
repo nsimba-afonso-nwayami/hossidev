@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Servicos() {
+  const [verTodos, setVerTodos] = useState(false);
+
   const listaServicos = [
     {
       title: "Consultoria Estratégica",
@@ -32,7 +35,7 @@ export default function Servicos() {
     {
       title: "Redes e Telecomunicações",
       icon: "fas fa-network-wired",
-      desc: "Projetos de infraestrutura de rede robustos para garantir alta disponibilidade e performance.",
+      desc: "Projetagem e implementação de infraestrutura de rede robusta para garantir alta performance.",
       preco: "200.000",
     },
     {
@@ -66,9 +69,34 @@ export default function Servicos() {
       preco: "300.000",
     },
     {
+      title: "Fechadura Magnética Simples",
+      icon: "fas fa-door-closed",
+      desc: "Segurança básica e eficiente para portas internas e externas com travamento eletromagnético.",
+      preco: "150.000",
+    },
+    {
+      title: "Sistema Biométrico Analógico",
+      icon: "fas fa-fingerprint",
+      desc: "Controle de entrada clássico por impressão digital com alta taxa de reconhecimento.",
+      preco: "100.000",
+    },
+    // Estes aparecem no "Ver Mais"
+    {
+      title: "Sistema Biométrico Completo",
+      icon: "fas fa-users-gear",
+      desc: "Solução integral com gestão de horários, relatórios e integração com software de RH.",
+      preco: "400.000",
+    },
+    {
+      title: "Controle de Acesso e Biometria",
+      icon: "fas fa-user-shield",
+      desc: "Combinação de segurança física e digital para áreas de acesso restrito e alta segurança.",
+      preco: "400.000",
+    },
+    {
       title: "Sistemas Personalizados",
       icon: "fas fa-code-merge",
-      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu modelo de negócio.",
+      desc: "Desenvolvimento sob medida para resolver desafios específicos do seu negócio.",
       preco: null,
     },
     {
@@ -79,13 +107,14 @@ export default function Servicos() {
     },
   ];
 
-  // Variants para animação dos cards
+  const servicosExibidos = verTodos ? listaServicos : listaServicos.slice(0, 12);
+
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: (i) => ({
       opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.1, duration: 0.6 },
+      scale: 1,
+      transition: { delay: (i % 12) * 0.05, duration: 0.4 },
     }),
   };
 
@@ -110,67 +139,77 @@ export default function Servicos() {
 
         {/* Grid de Serviços */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-neutral-400/20 overflow-hidden rounded-2xl border border-neutral-400/20 shadow-2xl">
-          {listaServicos.map((servico, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={cardVariants}
-              className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between"
-            >
-              {/* Overlay sutil */}
-              <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>
+          <AnimatePresence initial={false}>
+            {servicosExibidos.map((servico, index) => (
+              <motion.div
+                key={servico.title}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, scale: 0.95 }}
+                variants={cardVariants}
+                layout
+                className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between"
+              >
+                <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>
 
-              <div className="relative z-10">
-                {/* Ícone Dinâmico */}
-                <motion.div
-                  whileHover={{ scale: 1.15, color: "#1E40AF" }} // blue-900
-                  className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
-                >
-                  <i className={servico.icon}></i>
-                </motion.div>
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{ scale: 1.1, color: "#1E40AF" }}
+                    className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
+                  >
+                    <i className={servico.icon}></i>
+                  </motion.div>
 
-                <h3 className="text-lg font-bold text-neutral-700 mb-4 group-hover:text-blue-900 transition-colors duration-300 min-h-14 flex items-center leading-snug">
-                  {servico.title}
-                </h3>
+                  <h3 className="text-lg font-bold text-neutral-700 mb-4 group-hover:text-blue-900 transition-colors duration-300 min-h-14 flex items-center leading-snug">
+                    {servico.title}
+                  </h3>
 
-                {/* Preço ou Sob Consulta */}
-                <div className="mb-6 flex items-center h-8">
-                  {servico.preco ? (
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider leading-none">A partir de</span>
-                      <span className="text-blue-900 font-bold text-lg leading-tight">{servico.preco} Kz </span>
-                    </div>
-                  ) : (
-                    <span className="inline-block px-3 py-1 bg-neutral-100 text-neutral-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-neutral-200 group-hover:bg-blue-900/10 group-hover:text-blue-900 transition-colors duration-500">
-                      Sob consulta
-                    </span>
-                  )}
+                  <div className="mb-6 flex items-center h-8">
+                    {servico.preco ? (
+                      <div className="flex flex-col">
+                        <span className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider leading-none">A partir de</span>
+                        <span className="text-blue-900 font-bold text-lg leading-tight">{servico.preco} Kz </span>
+                      </div>
+                    ) : (
+                      <span className="inline-block px-3 py-1 bg-neutral-100 text-neutral-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-neutral-200 group-hover:bg-blue-900/10 group-hover:text-blue-900 transition-colors duration-500">
+                        Sob consulta
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-neutral-500 text-sm leading-relaxed font-medium">
+                    {servico.desc}
+                  </p>
                 </div>
 
-                <p className="text-neutral-500 text-sm leading-relaxed font-medium">
-                  {servico.desc}
-                </p>
-              </div>
-
-              {/* Detalhe de Expertise no Hover */}
-              <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10">
-                <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
-                <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  {servico.title.split(" ")[0]}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+                <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10">
+                  <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
+                  <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    {servico.title.split(" ")[0]}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
-        {/* CTA final */}
-        <div className="mt-28 flex flex-col items-center">
+        {/* Área de Ação */}
+        <div className="mt-20 flex flex-col items-center gap-10">
+          
+          {/* Botão Alternável Ver Mais / Ver Menos */}
+          <button
+            onClick={() => setVerTodos(!verTodos)}
+            className="group cursor-pointer flex items-center gap-4 px-10 py-4 border-2 border-blue-900 text-blue-900 font-bold rounded-full hover:bg-blue-900 hover:text-neutral-50 transition-all duration-500 uppercase text-xs tracking-[0.2em]"
+          >
+            {verTodos ? "Ver menos serviços" : "Ver mais serviços"}
+            <i className={`fas fa-chevron-down transition-transform duration-500 ${verTodos ? "rotate-180" : ""}`} />
+          </button>
+
+          {/* CTA Principal */}
           <Link
             href="#contato"
-            className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-full overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center"
+            className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-full overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center mt-4"
           >
             <span className="relative z-10 flex items-center gap-3">
               Falar com um Consultor Especialista
@@ -178,7 +217,8 @@ export default function Servicos() {
             </span>
             <div className="absolute inset-0 bg-blue-800 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
           </Link>
-          <p className="mt-8 text-neutral-400 text-[10px] font-bold uppercase tracking-[0.4em]">
+          
+          <p className="text-neutral-400 text-[10px] font-bold uppercase tracking-[0.4em]">
             Qualidade · Segurança · Inovação
           </p>
         </div>
