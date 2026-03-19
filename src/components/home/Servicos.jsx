@@ -9,61 +9,73 @@ export default function Servicos() {
       title: "Consultoria Estratégica",
       icon: "fas fa-lightbulb",
       desc: "Análise técnica detalhada para otimizar processos e reduzir custos operacionais com tecnologia.",
+      preco: null,
     },
     {
       title: "Segurança Eletrónica",
       icon: "fas fa-shield-halved",
       desc: "Proteção perimetral avançada com sistemas inteligentes de detecção e resposta rápida.",
+      preco: "150.000",
     },
     {
       title: "Video Vigilância CCTV",
       icon: "fas fa-video",
       desc: "Monitoramento em alta definição com acesso remoto e análise de vídeo em tempo real.",
+      preco: "100.000",
     },
     {
       title: "Sistemas de RADAR",
       icon: "fas fa-microchip",
       desc: "Tecnologia de precisão para controle de velocidade e monitoramento de tráfego inteligente.",
+      preco: "2.000.000",
     },
     {
       title: "Redes e Telecomunicações",
       icon: "fas fa-network-wired",
       desc: "Projetos de infraestrutura de rede robustos para garantir alta disponibilidade e performance.",
+      preco: "200.000",
     },
     {
       title: "Controle de Acesso RFID",
       icon: "fas fa-id-card-clip",
       desc: "Gestão de fluxo de pessoas com fechaduras magnéticas e autenticação biométrica ou RFID.",
+      preco: "100.000",
     },
     {
       title: "Energias Renováveis",
       icon: "fas fa-solar-panel",
       desc: "Implementação de sistemas fotovoltaicos para eficiência energética e sustentabilidade.",
+      preco: "1.500.000",
     },
     {
       title: "Softwares de Arquitetura",
       icon: "fas fa-pen-ruler",
       desc: "Instalação e configuração de ferramentas avançadas para desenho técnico e modelagem 3D.",
+      preco: null,
     },
     {
       title: "Criação de Sites",
       icon: "fas fa-laptop-code",
       desc: "Desenvolvimento de plataformas web responsivas, rápidas e focadas em conversão.",
+      preco: "50.000",
     },
     {
       title: "Sistemas de Gestão Web",
       icon: "fas fa-database",
       desc: "Softwares ERP e CRM personalizados para centralizar o controle da sua empresa.",
+      preco: "300.000",
     },
     {
       title: "Sistemas Personalizados",
       icon: "fas fa-code-merge",
       desc: "Desenvolvimento sob medida para resolver desafios específicos do seu modelo de negócio.",
+      preco: null,
     },
     {
       title: "Manutenção Preventiva",
       icon: "fas fa-tools",
       desc: "Suporte técnico contínuo para garantir que sua infraestrutura nunca pare de funcionar.",
+      preco: null,
     },
   ];
 
@@ -123,6 +135,20 @@ export default function Servicos() {
                 <h3 className="text-lg font-bold text-neutral-700 mb-4 group-hover:text-blue-900 transition-colors duration-300 min-h-14 flex items-center leading-snug">
                   {servico.title}
                 </h3>
+
+                {/* Preço ou Sob Consulta */}
+                <div className="mb-6 flex items-center h-8">
+                  {servico.preco ? (
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-neutral-400 uppercase font-bold tracking-wider leading-none">A partir de</span>
+                      <span className="text-blue-900 font-bold text-lg leading-tight">{servico.preco} Kz </span>
+                    </div>
+                  ) : (
+                    <span className="inline-block px-3 py-1 bg-neutral-100 text-neutral-500 text-[10px] font-bold uppercase tracking-widest rounded-full border border-neutral-200 group-hover:bg-blue-900/10 group-hover:text-blue-900 transition-colors duration-500">
+                      Sob consulta
+                    </span>
+                  )}
+                </div>
 
                 <p className="text-neutral-500 text-sm leading-relaxed font-medium">
                   {servico.desc}
