@@ -8,7 +8,7 @@ export default function Servicos() {
   const [verTodos, setVerTodos] = useState(false);
 
   // Link base para o seu WhatsApp (ajuste o número conforme necessário)
-  const whatsappBase = "https://wa.me/244900000000?text=Olá! Gostaria de solicitar informações sobre: ";
+  const whatsappBase = "https://wa.me/244972614886?text=Olá! Gostaria de solicitar informações sobre: ";
 
   const listaServicos = [
     {
