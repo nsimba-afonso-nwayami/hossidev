@@ -9,7 +9,6 @@ export default function Servicos() {
   const [activeCard, setActiveCard] = useState(null);
   const sectionRef = useRef(null);
 
-  // Fecha o card se clicar fora da seção de serviços
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sectionRef.current && !sectionRef.current.contains(event.target)) {
@@ -43,6 +42,20 @@ export default function Servicos() {
 
   const servicosExibidos = verTodos ? listaServicos : listaServicos.slice(0, 8);
 
+  // Variants de animação restauradas
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { 
+        delay: (i % 8) * 0.1, 
+        duration: 0.5,
+        ease: "easeOut" 
+      },
+    }),
+  };
+
   return (
     <section id="servicos" ref={sectionRef} className="py-24 lg:py-40 bg-neutral-100">
       <div className="container mx-auto px-6 lg:px-20">
@@ -68,12 +81,14 @@ export default function Servicos() {
               return (
                 <motion.div
                   key={servico.id}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0, scale: 0.95 }}
                   layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   onClick={() => setActiveCard(isSelected ? null : servico.id)}
-                  className={`bg-neutral-50 p-10 transition-all duration-500 group relative hover:z-10 flex flex-col justify-between overflow-hidden cursor-pointer h-full`}
+                  className="bg-neutral-50 p-10 transition-all duration-500 group relative hover:z-10 flex flex-col justify-between overflow-hidden cursor-pointer h-full"
                 >
                   {/* Overlay ao selecionar ou hover */}
                   <div className={`absolute inset-0 bg-blue-900 transition-opacity duration-500 ${isSelected ? 'opacity-[0.05]' : 'opacity-0 group-hover:opacity-[0.03]'}`}></div>
@@ -110,13 +125,13 @@ export default function Servicos() {
                     </p>
                   </div>
 
-                  {/* BOTÃO WHATSAPP (Aparece ao selecionar ou hover) */}
+                  {/* BOTÃO WHATSAPP */}
                   <div className={`absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out z-20 
                     ${isSelected ? 'translate-y-0' : 'translate-y-full group-hover:translate-y-0'}`}>
                     <Link
                       href={`${whatsappBase}${encodeURIComponent(servico.title)}`}
                       target="_blank"
-                      onClick={(e) => e.stopPropagation()} // Impede que o clique no link feche o card antes de redirecionar
+                      onClick={(e) => e.stopPropagation()}
                       className="flex items-center justify-center gap-3 w-full py-4 bg-blue-900 text-neutral-50 rounded-xl font-bold text-xs uppercase tracking-widest shadow-xl shadow-blue-900/30 hover:bg-blue-800 active:scale-95 transition-all"
                     >
                       <i className="fab fa-whatsapp text-lg"></i>
@@ -137,7 +152,7 @@ export default function Servicos() {
           </AnimatePresence>
         </div>
 
-        {/* Botão Ver Mais/Menos */}
+        {/* Botões de Ação */}
         <div className="mt-20 flex flex-col items-center gap-10">
           <button
             onClick={() => setVerTodos(!verTodos)}
