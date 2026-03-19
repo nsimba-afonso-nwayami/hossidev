@@ -7,6 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Servicos() {
   const [verTodos, setVerTodos] = useState(false);
 
+  // Link base para o seu WhatsApp (ajuste o número conforme necessário)
+  const whatsappBase = "https://wa.me/244900000000?text=Olá! Gostaria de solicitar informações sobre: ";
+
   const listaServicos = [
     {
       title: "Consultoria Estratégica",
@@ -80,7 +83,6 @@ export default function Servicos() {
       desc: "Segurança básica e eficiente para portas internas e externas com travamento eletromagnético.",
       preco: "150.000",
     },
-    // Estes aparecem no "Ver Mais"
     {
       title: "Sistema Biométrico Analógico",
       icon: "fas fa-fingerprint",
@@ -121,6 +123,7 @@ export default function Servicos() {
   return (
     <section id="servicos" className="py-24 lg:py-40 bg-neutral-100">
       <div className="container mx-auto px-6 lg:px-20">
+        
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
           <div className="max-w-2xl space-y-4">
@@ -149,13 +152,15 @@ export default function Servicos() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 variants={cardVariants}
                 layout
-                className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between"
+                className="bg-neutral-50 p-10 transition-all duration-700 group relative hover:z-10 flex flex-col justify-between overflow-hidden"
               >
+                {/* Overlay sutil ao passar o mouse */}
                 <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
+                  {/* Ícone */}
                   <motion.div
-                    whileHover={{ scale: 1.1, color: "#1E40AF" }}
+                    whileHover={{ scale: 1.1, color: "#1E3A8A" }} // blue-900
                     className="mb-8 w-14 h-14 flex items-center justify-center rounded-xl bg-neutral-100 group-hover:bg-blue-900 transition-all duration-500 shadow-sm text-blue-900 text-2xl"
                   >
                     <i className={servico.icon}></i>
@@ -178,12 +183,25 @@ export default function Servicos() {
                     )}
                   </div>
 
-                  <p className="text-neutral-500 text-sm leading-relaxed font-medium">
+                  <p className="text-neutral-500 text-sm leading-relaxed font-medium mb-4 group-hover:opacity-40 transition-opacity duration-500">
                     {servico.desc}
                   </p>
                 </div>
 
-                <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10">
+                {/* BOTÃO WHATSAPP (Aparece no Hover) */}
+                <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+                  <Link
+                    href={`${whatsappBase}${encodeURIComponent(servico.title)}`}
+                    target="_blank"
+                    className="flex items-center justify-center gap-3 w-full py-4 bg-blue-900 text-neutral-50 rounded-xl font-bold text-xs uppercase tracking-widest shadow-lg shadow-blue-900/30 hover:bg-blue-800 transition-colors"
+                  >
+                    <i className="fab fa-whatsapp text-lg"></i>
+                    Solicitar Orçamento
+                  </Link>
+                </div>
+
+                {/* Detalhe de Expertise Lateral */}
+                <div className="mt-8 flex items-center gap-2 overflow-hidden relative z-10 group-hover:opacity-0 transition-opacity duration-300">
                   <div className="w-8 h-px bg-blue-900 -translate-x-12 group-hover:translate-x-0 transition-transform duration-500"></div>
                   <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     {servico.title.split(" ")[0]}
@@ -197,7 +215,6 @@ export default function Servicos() {
         {/* Área de Ação */}
         <div className="mt-20 flex flex-col items-center gap-10">
           
-          {/* Botão Alternável Ver Mais / Ver Menos */}
           <button
             onClick={() => setVerTodos(!verTodos)}
             className="group cursor-pointer flex items-center gap-4 px-10 py-4 border-2 border-blue-900 text-blue-900 font-bold rounded-full hover:bg-blue-900 hover:text-neutral-50 transition-all duration-500 uppercase text-xs tracking-[0.2em]"
@@ -206,7 +223,6 @@ export default function Servicos() {
             <i className={`fas fa-chevron-down transition-transform duration-500 ${verTodos ? "rotate-180" : ""}`} />
           </button>
 
-          {/* CTA Principal */}
           <Link
             href="#contato"
             className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-full overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center mt-4"
