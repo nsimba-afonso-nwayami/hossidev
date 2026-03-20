@@ -33,7 +33,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center" title="HOSSIDEV">
+        <Link href="/" className="flex items-center p-2 rounded-xl group transition-colors duration-300 hover:bg-white/80 backdrop-blur-sm" title="HOSSIDEV">
           <Image
             src={logo}
             alt="HOSSIDEV"
