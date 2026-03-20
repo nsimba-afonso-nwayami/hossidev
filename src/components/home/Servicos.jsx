@@ -42,16 +42,19 @@ export default function Servicos() {
 
   const servicosExibidos = verTodos ? listaServicos : listaServicos.slice(0, 8);
 
-  // Variants de animação restauradas
+  // Variants de animação ajustadas para um movimento mais fluido e suave
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { 
+      opacity: 0, 
+      y: 15 
+    },
     visible: (i) => ({
       opacity: 1,
       y: 0,
       transition: { 
-        delay: (i % 8) * 0.1, 
-        duration: 0.5,
-        ease: "easeOut" 
+        delay: (i % 8) * 0.12, // Delay levemente maior para cadência elegante
+        duration: 0.8,         // Mais tempo de execução para suavidade
+        ease: [0.25, 0.1, 0.25, 1], // Cubic-bezier para um movimento "premium"
       },
     }),
   };
