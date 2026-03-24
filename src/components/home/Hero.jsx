@@ -31,35 +31,35 @@ export default function Hero() {
       highlight: "Temporada Tech",
       desc: "CCTV a partir de 100.000 Kz e Sites Institucionais a partir de 50.000 Kz. Tecnologia de ponta com condições exclusivas.",
       price: "Promoções Ativas",
-      img: promocaoBg,
+      img: "/img/promocao.jpg",
     },
     {
       title: "Suporte de TI Profissional para",
       highlight: "Empresas Modernas",
       desc: "Especialistas em infraestrutura, redes e consultoria tecnológica para empresas que buscam alta performance em Luanda.",
       price: "A partir de 100.000 Kz",
-      img: suporteBg,
+      img: "/img/suporte.jpg",
     },
     {
       title: "Segurança Eletrónica e",
       highlight: "Vigilância CCTV",
       desc: "Instalação de câmeras IP de alta definição e monitoramento remoto. Proteja seu patrimônio com o que há de mais moderno.",
       price: "A partir de 20.000 Kz",
-      img: segurancaBg,
+      img: "/img/seguranca.jpg",
     },
     {
       title: "Redes e",
       highlight: "Telecomunicações",
       desc: "Projetamos e implementamos redes estruturadas, Wi-Fi corporativo e sistemas de telecomunicações robustos.",
       price: "A partir de 200.000 Kz",
-      img: heroBg,
+      img: "/img/hero.jpg",
     },
     {
       title: "Criação de",
       highlight: "Sistemas e Sites",
       desc: "Desenvolvemos sites institucionais, sistemas de gestão web e soluções personalizadas para o seu negócio.",
       price: "A partir de 50.000 Kz",
-      img: sitesBg,
+      img: "/img/suporte.jpg",
     }
   ];
 

@@ -26,7 +26,7 @@ export default function Sobre() {
 
             <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src={sobre}
+                src="/img/sobre.jpg"
                 alt="Nossa equipe de especialistas em TI"
                 className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
               />
