@@ -99,7 +99,7 @@ export default function Contato() {
                     E-mail
                   </p>
                   <p className="text-lg font-bold text-neutral-700">
-                    contato@hossidev.com
+                    geral@hossidev.com | comercial@hossidev.com
                   </p>
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function Contato() {
                     Telefone / WhatsApp
                   </p>
                   <p className="text-lg font-bold text-neutral-700">
-                    +244 972 614 886
+                    +244 924 034 804
                   </p>
                 </div>
               </div>
