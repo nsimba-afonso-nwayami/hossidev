@@ -2,6 +2,9 @@
 const nextConfig = {
   /* config options here */
   output: 'export', // habilita export estático
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
