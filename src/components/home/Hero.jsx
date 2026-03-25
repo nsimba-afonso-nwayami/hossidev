@@ -59,7 +59,7 @@ export default function Hero() {
       highlight: "Sistemas e Sites",
       desc: "Desenvolvemos sites institucionais, sistemas de gestão web e soluções personalizadas para o seu negócio.",
       price: "A partir de 50.000 Kz",
-      img: "/img/suporte.jpg",
+      img: "/img/sites.jpg",
     }
   ];
 
