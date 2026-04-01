@@ -127,8 +127,8 @@ export default function Contato() {
                     Localização
                   </p>
                   <p className="text-lg font-bold text-neutral-700">
-                    Centralidade do Kilamba Quarteirão F,<br />
-                    Edifício F27, Apt. 91, Luanda, Angola
+                    Benfica Zona Verde 3,<br />
+                    Luanda, Angola
                   </p>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function Contato() {
           className="w-full h-112.5 lg:h-137.5 rounded-[2.5rem] overflow-hidden shadow-2xl border border-neutral-400/20 group"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.7343727422167!2d13.25866857414194!3d-8.996571892629392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a521feccbfcdc5b%3A0x39338cb33ba2f1ea!2sN.Wayami!5e0!3m2!1spt-PT!2sao!4v1770129007183!5m2!1spt-PT!2sao"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.78751929448!2d13.165489474142559!3d-9.02830969306441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a521f000463b51f%3A0x21dab6c22ee97b7a!2sBENFICA%20ZONA%20VERDE%203!5e1!3m2!1spt-PT!2sao!4v1775057675204!5m2!1spt-PT!2sao"
             width="100%"
             height="100%"
             style={{ border: 0 }}
