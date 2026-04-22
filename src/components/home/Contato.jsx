@@ -234,7 +234,7 @@ export default function Contato() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full cursor-pointer py-5 bg-blue-900 text-neutral-50 font-bold rounded-xl hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/20 active:scale-[0.98]"
+                className="w-full cursor-pointer py-5 bg-blue-900 text-neutral-50 font-bold rounded-md hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/20 active:scale-[0.98]"
                 type="submit"
               >
                 ENVIAR MENSAGEM

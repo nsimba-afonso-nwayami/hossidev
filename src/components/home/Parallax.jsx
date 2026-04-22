@@ -68,7 +68,7 @@ export default function Parallax() {
           >
             <Link
               href="#contato"
-              className="group relative inline-flex items-center gap-4 px-12 py-5 bg-neutral-50 text-blue-900 font-black rounded-full transition-all duration-300 hover:bg-blue-800 hover:text-neutral-50 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+              className="group relative inline-flex items-center gap-4 px-12 py-5 bg-neutral-50 text-blue-900 font-black rounded-md transition-all duration-300 hover:bg-blue-800 hover:text-neutral-50 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
             >
               <span className="relative z-10">SOLICITAR ORÇAMENTO AGORA</span>
               <i className="fas fa-arrow-right text-sm transition-transform group-hover:translate-x-2" />
