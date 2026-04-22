@@ -69,7 +69,7 @@ export default function Header() {
 
           {/* CTA - Estilo Premium para combinar com o Hero */}
           <a
-            href="https://wa.me/244972614886?text=Olá%20HOSSIDEV,%20preciso%20de%20suporte%20de%20TI."
+            href="https://wa.me/244924034804?text=Olá%20HOSSIDEV,%20preciso%20de%20suporte%20de%20TI."
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-blue-900 text-neutral-50 px-6 py-2 rounded-md hover:bg-blue-800 transition-all duration-300 border border-blue-800 font-bold shadow-lg shadow-blue-900/20"

@@ -19,7 +19,7 @@ export default function Servicos() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const whatsappBase = "https://wa.me/244972614886?text=Olá! Gostaria de solicitar informações sobre: ";
+  const whatsappBase = "https://wa.me/924034804?text=Olá! Gostaria de solicitar informações sobre: ";
 
   const listaServicos = [
     { id: 1, title: "Consultoria Estratégica", icon: "fas fa-lightbulb", desc: "Análise técnica detalhada para otimizar processos e reduzir custos operacionais com tecnologia.", preco: null },
