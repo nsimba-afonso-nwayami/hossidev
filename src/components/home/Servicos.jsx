@@ -159,7 +159,7 @@ export default function Servicos() {
         <div className="mt-20 flex flex-col items-center gap-10">
           <button
             onClick={() => setVerTodos(!verTodos)}
-            className="group cursor-pointer flex items-center gap-4 px-10 py-4 border-2 border-blue-900 text-blue-900 font-bold rounded-full hover:bg-blue-900 hover:text-neutral-50 transition-all duration-500 uppercase text-xs tracking-[0.2em]"
+            className="group cursor-pointer flex items-center gap-4 px-10 py-4 border-2 border-blue-900 text-blue-900 font-bold rounded-md hover:bg-blue-900 hover:text-neutral-50 transition-all duration-500 uppercase text-xs tracking-[0.2em]"
           >
             {verTodos ? "Ver menos serviços" : "Ver mais serviços"}
             <i className={`fas fa-chevron-down transition-transform duration-500 ${verTodos ? "rotate-180" : ""}`} />
@@ -167,7 +167,7 @@ export default function Servicos() {
 
           <Link
             href="#contato"
-            className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-full overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center mt-4"
+            className="group relative px-14 py-6 bg-blue-900 text-neutral-50 font-bold rounded-md overflow-hidden transition-all shadow-[0_20px_50px_rgba(30,58,138,0.2)] hover:shadow-blue-900/40 active:scale-95 text-center mt-4"
           >
             <span className="relative z-10 flex items-center gap-3">
               Falar com um Consultor Especialista
@@ -175,6 +175,19 @@ export default function Servicos() {
             </span>
             <div className="absolute inset-0 bg-blue-800 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
           </Link>
+
+          <Link
+              href="/HOSSIDEV_PORTFÓLIO.pdf" // <-- coloca aqui o caminho real do teu ficheiro
+              target="_blank"
+              download
+              className="group relative px-14 py-6 bg-neutral-800 text-neutral-50 font-bold rounded-md overflow-hidden transition-all shadow-[0_20px_50px_rgba(0,0,0,0.2)] hover:shadow-neutral-900/40 active:scale-95 text-center"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Baixar Portfólio
+                <i className="fas fa-download text-sm transition-transform group-hover:translate-y-1" />
+              </span>
+              <div className="absolute inset-0 bg-neutral-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            </Link>
         </div>
       </div>
     </section>
