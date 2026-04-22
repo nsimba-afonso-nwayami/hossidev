@@ -29,7 +29,7 @@ export const metadata = {
   publisher: "HOSSIDEV",
 
   alternates: {
-    canonical: "https://hossidev.vercel.app/",
+    canonical: "https://hossidev.com/",
   },
 
   openGraph: {
@@ -37,14 +37,14 @@ export const metadata = {
     description:
       "Especialistas em suporte de TI, CCTV, redes informáticas, controle de acesso e desenvolvimento de sistemas personalizados para empresas em Angola.",
 
-    url: "https://hossidev.vercel.app/",
+    url: "https://hossidev.com/",
     siteName: "HOSSIDEV",
     locale: "pt_AO",
     type: "website",
 
     images: [
       {
-        url: "https://hossidev.vercel.app/hero.jpg",
+        url: "https://hossidev.com/hero.jpg",
         width: 1200,
         height: 630,
         alt: "HOSSIDEV - Suporte de TI e Segurança Eletrónica",
@@ -64,9 +64,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ITService",
     "name": "HOSSIDEV",
-    "url": "https://hossidev.vercel.app/",
-    "logo": "https://hossidev.vercel.app/logo.png",
-    "image": "https://hossidev.vercel.app/hero.jpg",
+    "url": "https://hossidev.com/",
+    "logo": "https://hossidev.com/logo.png",
+    "image": "https://hossidev.com/hero.jpg",
 
     "description":
       "Empresa especializada em suporte de TI, segurança eletrónica, CCTV, redes informáticas, controle de acesso e desenvolvimento de sistemas personalizados em Angola.",
@@ -172,7 +172,7 @@ export default function Home() {
     "provider": {
       "@type": "Organization",
       "name": "HOSSIDEV",
-      "url": "https://hossidev.vercel.app"
+      "url": "https://hossidev.com"
     },
     "areaServed": {
       "@type": "City",

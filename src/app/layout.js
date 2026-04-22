@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 // SEO GLOBAL DO SITE
 export const metadata = {
-  metadataBase: new URL("https://hossidev.vercel.app"),
+  metadataBase: new URL("https://hossidev.com"),
 
   title: {
     default: "HOSSIDEV | Suporte de TI, CCTV e Desenvolvimento de Sistemas em Luanda",
@@ -51,7 +51,7 @@ export const metadata = {
     description:
       "Soluções completas em suporte de TI, segurança eletrónica, CCTV, redes informáticas e desenvolvimento de sistemas personalizados.",
 
-    url: "https://hossidev.vercel.app",
+    url: "https://hossidev.com",
     siteName: "HOSSIDEV",
 
     locale: "pt_AO",
