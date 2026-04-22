@@ -60,8 +60,8 @@ export default function Footer() {
               {/* Ícone agora é neutral-50 */}
               <i className="fas fa-map-marker-alt mt-1 mr-3 text-neutral-50"></i>
               <p className="text-sm leading-relaxed">
-                Centralidade do Kilamba Quarteirão F,<br />
-                Edifício F27, Apt. 91, Luanda, Angola
+                 Benfica Zona Verde 3,<br />
+                    Luanda, Angola
               </p>
             </div>
             <div className="flex items-center">
