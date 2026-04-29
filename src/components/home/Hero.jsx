@@ -12,12 +12,6 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import heroBg from "@/assets/img/hero.jpg"; 
-import suporteBg from "@/assets/img/suporte.jpg";
-import sitesBg from "@/assets/img/sites.jpg";
-import segurancaBg from "@/assets/img/seguranca.jpg";
-import promocaoBg from "@/assets/img/promocao.jpg";
-
 export default function Hero() {
   const [domLoaded, setDomLoaded] = useState(false);
 
@@ -82,7 +76,6 @@ export default function Hero() {
             {({ isActive }) => (
               <div className="relative w-full h-full flex items-center overflow-hidden">
                 
-                {/* 1. Imagem de Fundo com efeito Ken Burns (Zoom suave) */}
                 <div className={`absolute inset-0 transition-transform duration-8000 ease-linear ${isActive ? "scale-110" : "scale-100"}`}>
                   <Image
                     src={slide.img}
@@ -93,47 +86,56 @@ export default function Hero() {
                   />
                 </div>
 
-                {/* 2. Overlay Profundo */}
                 <div className="absolute inset-0 bg-linear-to-r from-black via-black/80 to-transparent z-10" />
 
-                {/* 3. Conteúdo Centralizado */}
                 <div className="container mx-auto px-6 lg:px-12 relative z-20">
-                  <div className="max-w-3xl space-y-6">
+                  <div className="max-w-4xl space-y-6">
                     
-                    {/* Linha de acento */}
                     <div className={`w-16 h-1 bg-blue-900 rounded-full transition-all duration-1000 delay-300 ${isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`} />
 
-                    {/* Título com animação */}
                     <h1 className={`text-3xl md:text-5xl lg:text-7xl font-bold text-neutral-50 leading-tight transition-all duration-1000 delay-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
                       {slide.title} <br />
                       <span className="text-blue-600 uppercase tracking-tighter">{slide.highlight}</span>
                     </h1>
 
-                    {/* Descrição */}
                     <p className={`text-base md:text-xl text-neutral-200 max-w-2xl font-light leading-relaxed transition-all duration-1000 delay-700 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
                       {slide.desc}
                     </p>
 
-                    {/* Preço (Badge) */}
                     {slide.price && (
                       <div className={`inline-block px-4 py-2 bg-blue-900/20 border border-blue-900/30 rounded-lg transition-all duration-1000 delay-800 ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
                         <p className="text-blue-400 font-bold text-lg md:text-xl italic">{slide.price}</p>
                       </div>
                     )}
 
-                    {/* Botões */}
-                    <div className={`flex flex-col sm:flex-row gap-4 pt-6 transition-all duration-1000 delay-1000 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                    {/* GRUPO DE BOTÕES ATUALIZADO */}
+                    <div className={`flex flex-wrap gap-4 pt-6 transition-all duration-1000 delay-1000 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+                      
+                      {/* Botão Loja (Destaque Principal) */}
+                      <Link
+                        href="https://lojaonline.hossidev.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="px-8 py-4 bg-white text-blue-900 font-black rounded-xl hover:bg-blue-900 hover:text-white shadow-2xl transition-all text-center uppercase text-xs tracking-[0.2em] flex items-center gap-2"
+                      >
+                        <i className="fas fa-shopping-cart"></i>
+                        Ir para a Loja
+                      </Link>
+
+                      {/* Botão Especialista */}
                       <Link
                         href="/#contato"
-                        className="px-10 py-4 bg-blue-900 text-neutral-50 font-black rounded-xl hover:bg-blue-800 shadow-xl shadow-blue-900/20 transition-all text-center uppercase text-sm tracking-widest"
+                        className="px-8 py-4 bg-blue-900 text-neutral-50 font-black rounded-xl hover:bg-blue-800 shadow-xl shadow-blue-900/20 transition-all text-center uppercase text-xs tracking-widest"
                       >
                         Falar com Especialista
                       </Link>
+
+                      {/* Botão Serviços */}
                       <Link
                         href="/#servicos"
-                        className="px-10 py-4 border border-neutral-600 text-neutral-50 font-bold rounded-xl hover:bg-neutral-50 hover:text-black transition-all text-center uppercase text-sm tracking-widest"
+                        className="px-8 py-4 border border-white/20 bg-white/5 backdrop-blur-md text-white font-bold rounded-xl hover:bg-white hover:text-black transition-all text-center uppercase text-xs tracking-widest"
                       >
-                        Nossos Serviços
+                        Serviços
                       </Link>
                     </div>
 
@@ -145,32 +147,30 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Estilização Customizada */}
       <style jsx global>{`
         .swiper-button-next, .swiper-button-prev {
           color: white !important;
           opacity: 0;
           transition: all 0.3s ease;
-          transform: scale(0.7);
+          transform: scale(0.6);
         }
         .group:hover .swiper-button-next, .group:hover .swiper-button-prev {
-          opacity: 0.5;
-          transform: scale(0.5);
+          opacity: 0.4;
         }
         .swiper-button-next:hover, .swiper-button-prev:hover {
           opacity: 1 !important;
+          transform: scale(0.7);
         }
         .swiper-pagination-bullet {
           background: white !important;
         }
         .swiper-pagination-bullet-active {
-          background: #1e3a8a !important; /* blue-900 */
-          width: 24px !important;
+          background: #1e3a8a !important;
+          width: 28px !important;
           border-radius: 4px !important;
         }
       `}</style>
 
-      {/* Detalhe de borda inferior */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-neutral-800 to-transparent z-30" />
     </section>
   );
